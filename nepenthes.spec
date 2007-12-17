@@ -38,7 +38,6 @@ BuildRequires:          libpcre-devel
 BuildRequires:          libprelude-devel
 BuildRequires:          libssh-devel
 BuildRequires:          postgresql-devel
-BuildRoot:              %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
 Nepenthes is a low interaction honeypot like honeyd or mwcollect. Low 
