@@ -2,13 +2,13 @@
 
 Name:                   nepenthes
 Version:                0.2.0
-Release:                %mkrel 2
+Release:                %mkrel 3
 Epoch:                  0
 Summary:                Low-interaction honeypot
 Group:                  Development/Other
 License:                GPL
 URL:                    http://nepenthes.mwcollect.org/
-Source0:                http://ovh.dl.sourceforge.net/sourceforge/nepenthes/nepenthes-%{version}.tar.bz2
+Source0:                http://downloads.sourceforge.net/sourceforge/nepenthes/nepenthes-%{version}.tar.bz2
 Source1:                nepenthes.init
 Source2:                nepenthes.logrotate
 Patch0:                 nepenthes-0.1.7-path.patch
@@ -28,16 +28,16 @@ BuildRequires:          iptables-devel
 %else
 BuildConflicts:         iptables-devel
 %endif
-BuildRequires:          libadns-devel
-BuildRequires:          libcap-devel
-BuildRequires:          libcurl-devel
-BuildRequires:          libmagic-devel
-BuildRequires:          libmysql-devel
-BuildRequires:          libpcap-devel
-BuildRequires:          libpcre-devel
-BuildRequires:          libprelude-devel
-BuildRequires:          libssh-devel
+BuildRequires:          adns-devel
+BuildRequires:          cap-devel
+BuildRequires:          curl-devel
+BuildRequires:          imagemagick-devel
+BuildRequires:          mysql-devel
+BuildRequires:          pcap-devel
+BuildRequires:          pcre-devel
 BuildRequires:          postgresql-devel
+BuildRequires:          prelude-devel
+#BuildRequires:          libssh-devel
 BuildRoot:              %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -77,8 +77,10 @@ are module interface to
 %endif
                --enable-pcap \
                --enable-debug-logging \
+%if 0
                --with-ssh-include=%{_includedir}/libssh \
-               --enable-ssh \
+%endif
+               --disable-ssh \
                --with-mysql-include=%{_includedir}/mysql \
                --enable-mysql \
                --with-postgre-include=%{_includedir}/pgsql \
@@ -92,7 +94,7 @@ are module interface to
 %install
 %{__rm} -rf %{buildroot}
 %{__mkdir_p} %{buildroot}%{_sysconfdir}/nepenthes/signatures
-%{makeinstall}
+%{makeinstall_std}
 
 %{__rm} -rf %{buildroot}%{_libdir}/nepenthes/*.{,l}a
 %{_bindir}/chrpath -d %{buildroot}%{_libdir}/nepenthes/*.so
@@ -154,5 +156,3 @@ are module interface to
 %ghost %attr(0660,root,nepenthes) %{_logdir}/nepenthes/logged_submissions
 %attr(0755,nepenthes,nepenthes) %{_var}/spool/nepenthes
 %config(noreplace) %attr(0644,root,root) %{_sysconfdir}/logrotate.d/%{name}
-
-
