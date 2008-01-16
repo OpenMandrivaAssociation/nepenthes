@@ -2,7 +2,7 @@
 
 Name:                   nepenthes
 Version:                0.2.0
-Release:                %mkrel 3
+Release:                %mkrel 4
 Epoch:                  0
 Summary:                Low-interaction honeypot
 Group:                  Development/Other
@@ -31,13 +31,13 @@ BuildConflicts:         iptables-devel
 BuildRequires:          adns-devel
 BuildRequires:          cap-devel
 BuildRequires:          curl-devel
-BuildRequires:          imagemagick-devel
+BuildRequires:          magic-devel
 BuildRequires:          mysql-devel
 BuildRequires:          pcap-devel
 BuildRequires:          pcre-devel
 BuildRequires:          postgresql-devel
 BuildRequires:          prelude-devel
-#BuildRequires:          libssh-devel
+BuildConflicts:         ssh-devel
 BuildRoot:              %{_tmppath}/%{name}-%{version}-%{release}-root
 
 %description
@@ -79,8 +79,10 @@ are module interface to
                --enable-debug-logging \
 %if 0
                --with-ssh-include=%{_includedir}/libssh \
-%endif
+               --enable-ssh \
+%else
                --disable-ssh \
+%endif
                --with-mysql-include=%{_includedir}/mysql \
                --enable-mysql \
                --with-postgre-include=%{_includedir}/pgsql \
