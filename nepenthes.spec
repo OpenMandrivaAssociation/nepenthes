@@ -1,8 +1,8 @@
 %define _localstatedir  %{_var}
 
 Name:                   nepenthes
-Version:                0.2.0
-Release:                %mkrel 4
+Version:                0.2.2
+Release:                %mkrel 1
 Epoch:                  0
 Summary:                Low-interaction honeypot
 Group:                  Development/Other
@@ -61,7 +61,7 @@ are module interface to
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
-%patch3 -p1
+#%%patch3 -p1
 %{__perl} -pi -e 's|/usr/lib|%{_libdir}|g' conf/nepenthes.conf.dist
 %{__perl} -pi -e 's| -Werror| -fPIC|g' `find . -type f -name Makefile.am -o -name Makefile.in`
 %{_bindir}/autoreconf -i --force
