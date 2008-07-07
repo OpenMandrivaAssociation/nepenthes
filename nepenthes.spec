@@ -15,6 +15,7 @@ Patch0:                 nepenthes-0.1.7-path.patch
 Patch1:                 nepenthes-0.1.7-no-rpath.patch
 Patch2:                 nepenthes-0.1.7-no-docs.patch
 Patch3:                 nepenthes-0.2.0-curl.patch
+Patch4:                 nepenthes-gcc43.diff
 Requires(post):         rpm-helper
 Requires(postun):       rpm-helper
 Requires(pre):          rpm-helper
@@ -62,13 +63,14 @@ are module interface to
 %patch1 -p1
 %patch2 -p1
 #%%patch3 -p1
+%patch4 -p1
 %{__perl} -pi -e 's|/usr/lib|%{_libdir}|g' conf/nepenthes.conf.dist
 %{__perl} -pi -e 's| -Werror| -fPIC|g' `find . -type f -name Makefile.am -o -name Makefile.in`
 %{_bindir}/autoreconf -i --force
 
 %build
-%{serverbuild}
-%{configure2_5x} \
+%serverbuild
+%configure2_5x \
 %if 0
                --with-ipq-include=%{_includedir} \
                --enable-ipq \
@@ -91,7 +93,7 @@ are module interface to
                --enable-dnsresolve-adns \
                --enable-prelude \
                --enable-capabilities
-%{make}
+%make
 
 %install
 %{__rm} -rf %{buildroot}
