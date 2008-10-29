@@ -2,7 +2,7 @@
 
 Name:                   nepenthes
 Version:                0.2.2
-Release:                %mkrel 3
+Release:                %mkrel 4
 Epoch:                  0
 Summary:                Low-interaction honeypot
 Group:                  Development/Other
@@ -39,7 +39,7 @@ BuildRequires:          pcre-devel
 BuildRequires:          postgresql-devel
 BuildRequires:          prelude-devel
 BuildConflicts:         ssh-devel
-BuildRoot:              %{_tmppath}/%{name}-%{version}-%{release}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 Nepenthes is a low interaction honeypot like honeyd or mwcollect. Low 
