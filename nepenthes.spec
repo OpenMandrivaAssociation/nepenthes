@@ -17,6 +17,7 @@ Patch2:                 nepenthes-0.1.7-no-docs.patch
 Patch3:                 nepenthes-0.2.0-curl.patch
 Patch4:                 nepenthes-gcc43.diff
 Patch5:                 nepenthes-0.2.2-fix-missing-include.patch
+Patch6:			nepenthes-0.2.2-fix-build-gcc44.patch
 Requires(post):         rpm-helper
 Requires(postun):       rpm-helper
 Requires(pre):          rpm-helper
@@ -66,6 +67,7 @@ are module interface to
 #%%patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p0
 %{__perl} -pi -e 's|/usr/lib|%{_libdir}|g' conf/nepenthes.conf.dist
 %{__perl} -pi -e 's| -Werror| -fPIC|g' `find . -type f -name Makefile.am -o -name Makefile.in`
 %{_bindir}/autoreconf -i --force
@@ -73,20 +75,10 @@ are module interface to
 %build
 %serverbuild
 %configure2_5x \
-%if 0
-               --with-ipq-include=%{_includedir} \
-               --enable-ipq \
-%else
                --disable-ipq \
-%endif
                --enable-pcap \
                --enable-debug-logging \
-%if 0
-               --with-ssh-include=%{_includedir}/libssh \
-               --enable-ssh \
-%else
                --disable-ssh \
-%endif
                --with-mysql-include=%{_includedir}/mysql \
                --enable-mysql \
                --with-postgre-include=%{_includedir}/pgsql \
