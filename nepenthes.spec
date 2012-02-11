@@ -2,7 +2,7 @@
 
 Name:                   nepenthes
 Version:                0.2.2
-Release:                %mkrel 7
+Release:                %mkrel 8
 Epoch:                  0
 Summary:                Low-interaction honeypot
 Group:                  Development/Other
