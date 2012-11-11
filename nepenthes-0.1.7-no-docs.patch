@@ -1,0 +1,12 @@
+--- nepenthes-0.1.7/Makefile.am.doc	2006-09-21 10:53:33.000000000 +0200
++++ nepenthes-0.1.7/Makefile.am	2006-09-21 10:53:56.000000000 +0200
+@@ -9,9 +9,6 @@
+ 
+ EXTRA_DIST = configure.ac CHANGES doc/README.VFS doc/logo-shaded.svg doc/nepenthes.8 conf/nepenthes.conf.dist
+ 
+-docdir = $(prefix)/share/doc
+-doc_DATA = doc/README.VFS doc/logo-shaded.svg
+-
+ #sysconf_DATA = conf/nepenthes.conf.dist
+ 
+ AM_CXXFLAGS = ''

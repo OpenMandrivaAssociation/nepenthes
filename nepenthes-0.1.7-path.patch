@@ -1,0 +1,152 @@
+--- nepenthes-0.1.7.orig/conf/nepenthes.conf.dist
++++ nepenthes-0.1.7/conf/nepenthes.conf.dist
+@@ -3,8 +3,8 @@
+ 
+ nepenthes
+ {
+-    moduledir               "lib/nepenthes";        // relative to workdir
+-    moduleconfigdir         "etc/nepenthes";                  // relative to workdir
++    moduledir               "/usr/lib/nepenthes";        // relative to workdir
++    moduleconfigdir         "/etc/nepenthes";                  // relative to workdir
+ 
+     modules(
+ //  module name (in moduledir)      config file (in moduleconfigdir)
+@@ -91,8 +91,8 @@
+ 
+     logmanager
+     {
+-	ring_logging_file		"var/log/nepenthes.%d.log";
+-	file_logging_file		"var/log/nepenthes.log";
++	ring_logging_file		"/var/log/nepenthes.%d.log";
++	file_logging_file		"/var/log/nepenthes.log";
+     };
+ 
+     modulemanager
+@@ -104,7 +104,7 @@
+     {
+         strictfiletype              "1";
+         // where does submit-file write to? set this to the same dir
+-        filesdir                    "var/binaries/"; 
++        filesdir                    "/var/lib/nepenthes/binaries/"; 
+     };
+ 
+     downloadmanager
+@@ -123,11 +123,11 @@
+     
+     utilities
+     {
+-	hexdump_path                "var/hexdumps/";
++	hexdump_path                "/var/lib/nepenthes/hexdumps/";
+     };
+     
+     geolocationmanager
+     {
+-	cache_path                   "var/cache/nepenthes/geolocation/";
++	cache_path                   "/var/cache/nepenthes/geolocation/";
+     };
+ };
+--- nepenthes-0.1.7.orig/doc/nepenthes.8
++++ nepenthes-0.1.7/doc/nepenthes.8
+@@ -1,6 +1,6 @@
+ .TH NEPENTHES "8" "2005-11-18" "nepenthes 0.1.3"
+ .SH NAME
+-nepenthes - finest collection - 
++nepenthes - collect malware by emulating widespread vulnerabilities
+ .SH SYNOPSIS
+ \fBnepenthes\fR [\fIOPTIONS\fR]
+ .TP
+@@ -111,19 +111,18 @@
+ check the files in the directory /opt/nepenthes/var/hexdumps and the files in /tmp/*.bin  for known shellcodes, do nothing.
+ .SH FILES
+ .TP
+-.I etc/nepenthes/nepenthes.conf
++.I /etc/nepenthes/nepenthes.conf
+ nepenthes configuration file
+ .TP
+-.I lib/nepenthes/
++.I /usr/lib/nepenthes/
+ nepenthes modules
+ .TP
+-.I etc/nepenthes/
++.I /etc/nepenthes/
+ nepenthes modules configuration files
+ 
+-.SH BUGS
+-.TP
+-this manual is a pain
+-
++.SH AUTHORS
++This page was written by Markus Koetter <nepenthesdev@users.sourceforge.net>
++for version 0.1.3 of nepenthes. It was adapted for Debian by Luciano Bello <luciano@linux.org.ar>.
+ 
+ .SH SEE ALSO
+ .BR nepenthes.conf (5)
+--- nepenthes-0.1.7.orig/modules/log-download/log-download.conf.dist
++++ nepenthes-0.1.7/modules/log-download/log-download.conf.dist
+@@ -1,5 +1,5 @@
+ log-download
+ {
+-    downloadfile    "var/log/logged_downloads"; // log download attempts
+-    submitfile    "var/log/logged_submissions"; // log successfull downloads
++    downloadfile    "/var/log/nepenthes/logged_downloads"; // log download attempts
++    submitfile    "/var/log/nepenthes/logged_submissions"; // log successfull downloads
+ };
+--- nepenthes-0.1.7.orig/modules/submit-file/submit-file.conf.dist
++++ nepenthes-0.1.7/modules/submit-file/submit-file.conf.dist
+@@ -1,5 +1,5 @@
+ submit-file
+ {
+-    path "var/binaries/";
++    path "/var/lib/nepenthes/binaries/";
+ };
+     
+--- nepenthes-0.1.7.orig/modules/shellcode-signatures/shellcode-signatures.cpp
++++ nepenthes-0.1.7/modules/shellcode-signatures/shellcode-signatures.cpp
+@@ -80,7 +80,7 @@
+ 	m_ModuleManager 	= m_Nepenthes->getModuleMgr();
+ 
+ 	g_Nepenthes->getShellcodeMgr()->registerShellcodeHandler(new EngineUnicode());
+-	return loadSignaturesFromFile(string("var/cache/nepenthes/signatures/shellcode-signatures.sc"));
++	return loadSignaturesFromFile(string("/etc/nepenthes/signatures/shellcode-signatures.sc"));
+ }
+ 
+ bool SignatureShellcodeHandler::Exit()
+--- nepenthes-0.1.7/modules/submit-gotek/submit-gotek.conf.dist.orig	2006-09-25 06:02:54.000000000 -0400
++++ nepenthes-0.1.7/modules/submit-gotek/submit-gotek.conf.dist	2006-09-25 06:03:00.000000000 -0400
+@@ -13,6 +13,6 @@
+ 		// spool directory where submissions are saved until sent
+ 		// you can also manually place files here to submit them and
+ 		// restart nepenthes
+-		directory =	"var/spool/nepenthes/gotek";
++		directory =	"/var/spool/nepenthes/gotek";
+ 	};
+ };
+--- nepenthes-0.2.0/Makefile.am.path	2006-11-13 20:40:12.000000000 +0100
++++ nepenthes-0.2.0/Makefile.am	2006-12-17 09:13:44.000000000 +0100
+@@ -46,19 +46,17 @@
+ 	$(mkinstalldirs) $(DESTDIR)$(mandir)
+ 	$(mkinstalldirs) $(DESTDIR)$(mandir)/man8
+ 	$(INSTALL_DATA) $(srcdir)/doc/nepenthes.8 $(DESTDIR)$(mandir)/man8/nepenthes.8;
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/cache
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/cache/nepenthes
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/cache/nepenthes/pcap
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/cache/nepenthes/signatures
++	$(mkinstalldirs) $(DESTDIR)$(sysconfdir)/nepenthes
++	$(mkinstalldirs) $(DESTDIR)$(sysconfdir)/nepenthes/signatures
+ 
+-	$(INSTALL_DATA) modules/shellcode-signatures/shellcode-signatures.sc $(DESTDIR)$(localstatedir)/cache/nepenthes/signatures
++	$(INSTALL_DATA) modules/shellcode-signatures/shellcode-signatures.sc $(DESTDIR)$(sysconfdir)/nepenthes/signatures
+ 	
+ 	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/spool
+ 	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/spool/nepenthes
+ 	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/spool/nepenthes/gotek
+ 	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/spool/nepenthes/submitpostgres
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/log
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/log/pcap
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/binaries
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/hexdumps
++	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/log/nepenthes
++	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/log/nepenthes/pcap
++	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/lib/nepenthes/binaries
++	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/lib/nepenthes/hexdumps
+ 

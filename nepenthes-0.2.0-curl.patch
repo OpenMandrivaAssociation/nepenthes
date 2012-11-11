@@ -1,0 +1,11 @@
+--- nepenthes-0.2.0/modules/download-curl/download-curl.cpp.orig	2006-12-17 08:29:42.000000000 +0100
++++ nepenthes-0.2.0/modules/download-curl/download-curl.cpp	2006-12-17 08:30:13.000000000 +0100
+@@ -230,7 +230,7 @@
+ 				 down->getDownloadUrl()->getPort(),
+ 				 down->getDownloadUrl()->getPath().c_str());
+ //        string auth = down->getDownloadUrl()->getUser() + ":" + down->getDownloadUrl()->getPass();
+-		curl_easy_setopt(pCurlHandle, CURLOPT_SOURCE_USERPWD,(char *)down->getDownloadUrl()->getAuth().c_str());
++//		curl_easy_setopt(pCurlHandle, CURLOPT_SOURCE_USERPWD,(char *)down->getDownloadUrl()->getAuth().c_str());
+ 		curl_easy_setopt(pCurlHandle, CURLOPT_USERPWD,(char *)down->getDownloadUrl()->getAuth().c_str());
+ 		curl_easy_setopt(pCurlHandle, CURLOPT_URL			, url);
+ 		curl_easy_setopt(pCurlHandle, CURLOPT_FTP_RESPONSE_TIMEOUT, 120);	// 2 min ftp timeout

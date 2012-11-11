@@ -1,0 +1,222 @@
+--- modules/download-creceive/CReceiveDialogue.cpp.gcc	2010-04-30 07:52:32.000000000 +0000
++++ modules/download-creceive/CReceiveDialogue.cpp	2010-04-30 07:52:43.000000000 +0000
+@@ -52,6 +52,7 @@
+ #include "DownloadBuffer.cpp"
+ 
+ #include "SubmitManager.hpp"
++#include <cstdio>
+ 
+ #ifdef STDTAGS 
+ #undef STDTAGS 
+--- modules/download-http/HTTPDialogue.cpp.gcc	2010-04-30 07:55:06.000000000 +0000
++++ modules/download-http/HTTPDialogue.cpp	2010-04-30 07:55:19.000000000 +0000
+@@ -31,6 +31,7 @@
+ 
+ #include <cstdlib> 
+ #include <cstring> 
++#include <cstdio>
+ 
+ #include "Message.hpp"
+ #include "Nepenthes.hpp"
+--- modules/shellcode-generic/sch_generic_connect_trans.cpp.gcc	2010-04-30 08:18:29.000000000 +0000
++++ modules/shellcode-generic/sch_generic_connect_trans.cpp	2010-04-30 08:20:44.000000000 +0000
+@@ -31,6 +31,7 @@
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
++#include <cstdio>
+ 
+ #include "LogManager.hpp"
+ #include "Message.hpp"
+--- modules/shellcode-generic/sch_generic_createprocess.cpp.gcc	2010-04-30 08:21:01.000000000 +0000
++++ modules/shellcode-generic/sch_generic_createprocess.cpp	2010-04-30 08:21:12.000000000 +0000
+@@ -39,6 +39,7 @@
+ /* $Id: sch_generic_createprocess.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <cstring>
++#include <cstdio>
+ 
+ #include "sch_generic_createprocess.hpp"
+ 
+--- modules/shellcode-generic/sch_generic_link_bind_trans.cpp.gcc	2010-04-30 08:21:26.000000000 +0000
++++ modules/shellcode-generic/sch_generic_link_bind_trans.cpp	2010-04-30 08:21:38.000000000 +0000
+@@ -28,6 +28,7 @@
+  /* $Id: sch_generic_link_bind_trans.cpp 2271 2006-01-14 20:31:52Z common $ */
+ 
+ #include <cstring>
++#include <cstdio>
+ 
+ #include <sys/types.h>
+ #include <sys/socket.h>
+--- modules/shellcode-generic/sch_generic_link_trans.cpp.gcc	2010-04-30 08:21:51.000000000 +0000
++++ modules/shellcode-generic/sch_generic_link_trans.cpp	2010-04-30 08:22:03.000000000 +0000
+@@ -28,6 +28,7 @@
+  /* $Id: sch_generic_link_trans.cpp 2271 2006-01-14 20:31:52Z common $ */
+ 
+ #include <cstring>
++#include <cstdio>
+ 
+ #include <sys/types.h>
+ #include <sys/socket.h>
+--- modules/shellcode-generic/sch_generic_stuttgart.cpp.gcc	2010-04-30 08:22:14.000000000 +0000
++++ modules/shellcode-generic/sch_generic_stuttgart.cpp	2010-04-30 08:22:33.000000000 +0000
+@@ -28,6 +28,7 @@
+  /* $Id: sch_generic_link_trans.cpp 1664 2005-07-15 03:33:39Z common $ */
+  
+ #include <cstring>
++#include <cstdio>
+ 
+ #include <sys/types.h>
+ #include <sys/socket.h>
+--- modules/shellcode-generic/sch_generic_url.cpp.gcc	2010-04-30 08:22:44.000000000 +0000
++++ modules/shellcode-generic/sch_generic_url.cpp	2010-04-30 08:22:58.000000000 +0000
+@@ -38,7 +38,7 @@
+  *
+  */
+ 
+-
++#include <cstdio>
+  
+ #include "sch_generic_url.hpp"
+ #include "LogManager.hpp"
+--- modules/shellcode-generic/sch_generic_wuerzburg.cpp.gcc	2010-04-30 08:23:07.000000000 +0000
++++ modules/shellcode-generic/sch_generic_wuerzburg.cpp	2010-04-30 08:23:17.000000000 +0000
+@@ -28,6 +28,7 @@
+  /* $Id: sch_generic_wuerzburg.cpp 2271 2006-01-14 20:31:52Z common $ */
+ 
+ #include <cstring>
++#include <cstdio>
+ 
+ #include <sys/types.h>
+ #include <sys/socket.h>
+--- modules/shellcode-generic/sch_generic_xor.cpp.gcc	2010-04-30 08:23:32.000000000 +0000
++++ modules/shellcode-generic/sch_generic_xor.cpp	2010-04-30 08:23:43.000000000 +0000
+@@ -38,7 +38,7 @@
+  *
+  */
+ 
+-
++#include <cstdio>
+ 
+ #include "sch_generic_xor.hpp"
+ 
+--- modules/shellcode-signatures/sch_namespace_bindfiletransfer.cpp.gcc	2010-04-30 08:31:58.000000000 +0000
++++ modules/shellcode-signatures/sch_namespace_bindfiletransfer.cpp	2010-04-30 08:32:14.000000000 +0000
+@@ -31,6 +31,7 @@
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
++#include <cstdio>
+ 
+ #include "sch_namespace_bindfiletransfer.hpp"
+ 
+--- modules/shellcode-signatures/sch_namespace_connectbackfiletransfer.cpp.gcc	2010-04-30 08:31:15.000000000 +0000
++++ modules/shellcode-signatures/sch_namespace_connectbackfiletransfer.cpp	2010-04-30 08:31:27.000000000 +0000
+@@ -31,6 +31,7 @@
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
++#include <cstdio>
+ 
+ #include "sch_namespace_connectbackfiletransfer.hpp"
+ 
+--- modules/shellemu-winnt/VFS.cpp.gcc	2010-04-30 08:26:59.000000000 +0000
++++ modules/shellemu-winnt/VFS.cpp	2010-04-30 08:27:10.000000000 +0000
+@@ -23,6 +23,7 @@
+ 
+ #include <ctype.h>
+ #include <cstring>
++#include <cstdio>
+ 
+ #include "VFS.hpp"
+ #include "VFSNode.hpp"
+--- modules/shellemu-winnt/VFSCommand.hpp.gcc	2010-04-30 08:27:29.000000000 +0000
++++ modules/shellemu-winnt/VFSCommand.hpp	2010-04-30 08:27:44.000000000 +0000
+@@ -33,6 +33,7 @@
+ #include <list>
+ #include <string>
+ #include <vector>
++#include <cstdlib>
+ 
+ #include "VFSNode.hpp"
+ 
+--- modules/shellemu-winnt/VFSCommandRCP.cpp.gcc	2010-04-30 08:28:09.000000000 +0000
++++ modules/shellemu-winnt/VFSCommandRCP.cpp	2010-04-30 08:28:21.000000000 +0000
+@@ -28,6 +28,7 @@
+ /* $Id: VFSCommandRCP.cpp 550 2006-05-04 10:25:35Z common $ */
+  
+ #include <cstring>
++#include <cstdio>
+ 
+ #include "VFSCommandRCP.hpp"
+ #include "VFSNode.hpp"
+--- modules/submit-file/submit-file.cpp.gcc	2010-04-30 07:56:04.000000000 +0000
++++ modules/submit-file/submit-file.cpp	2010-04-30 07:56:15.000000000 +0000
+@@ -30,6 +30,7 @@
+ #include <sys/stat.h>
+ #include <unistd.h>
+ #include <errno.h>
++#include <cstdio>
+ 
+ #include "submit-file.hpp"
+ #include "Download.hpp"
+--- modules/submit-postgres/PGDownloadContext.cpp.gcc	2010-04-30 07:56:54.000000000 +0000
++++ modules/submit-postgres/PGDownloadContext.cpp	2010-04-30 07:57:06.000000000 +0000
+@@ -28,6 +28,7 @@
+ /* $Id: PGDownloadContext.cpp 688 2006-10-29 20:08:41Z common $ */
+ 
+ #include <cstdlib>
++#include <cstdio>
+ 
+ #include <sys/types.h>
+ #include <sys/socket.h>
+--- nepenthes-core/src/DownloadManager.cpp.gcc	2010-04-30 07:48:42.000000000 +0000
++++ nepenthes-core/src/DownloadManager.cpp	2010-04-30 07:48:58.000000000 +0000
+@@ -43,6 +43,7 @@
+ #include "EventManager.hpp"
+ 
+ #include <cstdlib>
++#include <cstdio>
+ 
+ using namespace std;
+ using namespace nepenthes;
+--- nepenthes-core/src/ModuleManager.cpp.gcc	2010-04-30 07:49:09.000000000 +0000
++++ nepenthes-core/src/ModuleManager.cpp	2010-04-30 07:49:21.000000000 +0000
+@@ -36,6 +36,7 @@
+ #include "LogManager.hpp"
+ 
+ #include <cstdlib>
++#include <cstdio>
+ 
+ using namespace nepenthes;
+ using namespace std;
+--- nepenthes-core/src/ShellcodeManager.cpp.gcc	2010-04-30 07:50:52.000000000 +0000
++++ nepenthes-core/src/ShellcodeManager.cpp	2010-04-30 07:51:12.000000000 +0000
+@@ -34,6 +34,7 @@
+ #include "Message.hpp"
+ #include "SocketEvent.hpp"
+ #include "EventManager.hpp"
++#include <cstdio>
+ 
+ using namespace nepenthes;
+ 
+--- nepenthes-core/src/Socket.cpp.gcc	2010-04-30 07:49:35.000000000 +0000
++++ nepenthes-core/src/Socket.cpp	2010-04-30 07:49:47.000000000 +0000
+@@ -30,6 +30,7 @@
+ #include <string>
+ #include <sstream>
+ #include <cstring>
++#include <cstdio>
+ 
+ #include <time.h>
+ 
+--- nepenthes-core/src/Utilities.cpp.gcc	2010-04-30 07:51:25.000000000 +0000
++++ nepenthes-core/src/Utilities.cpp	2010-04-30 07:51:36.000000000 +0000
+@@ -38,6 +38,7 @@
+ #include <inttypes.h>
+ #include <ctype.h>
+ 
++#include <cstdio>
+ #include <cstdlib>
+ 
+ #include "Utilities.hpp"

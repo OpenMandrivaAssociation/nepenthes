@@ -1,0 +1,986 @@
+diff -Naurp nepenthes-0.2.2/modules/dnsresolve-adns/dnsresolve-adns.cpp nepenthes-0.2.2.oden/modules/dnsresolve-adns/dnsresolve-adns.cpp
+--- nepenthes-0.2.2/modules/dnsresolve-adns/dnsresolve-adns.cpp	2007-02-06 16:16:52.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/dnsresolve-adns/dnsresolve-adns.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,7 @@
+ 
+ #include <sys/poll.h>
+ #include <errno.h>
++#include <cstdlib>
+ 
+ 
+ #include "dnsresolve-adns.hpp"
+diff -Naurp nepenthes-0.2.2/modules/download-csend/CSendDialogue.cpp nepenthes-0.2.2.oden/modules/download-csend/CSendDialogue.cpp
+--- nepenthes-0.2.2/modules/download-csend/CSendDialogue.cpp	2006-02-20 17:46:03.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/download-csend/CSendDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -30,6 +30,8 @@
+ #include <sys/types.h>
+ #include <netinet/in.h>
+ 
++#include <cstdlib>
++
+ #include "CSendDialogue.hpp"
+ 
+ #include "UDPSocket.hpp"
+diff -Naurp nepenthes-0.2.2/modules/download-ftp/download-ftp.cpp nepenthes-0.2.2.oden/modules/download-ftp/download-ftp.cpp
+--- nepenthes-0.2.2/modules/download-ftp/download-ftp.cpp	2006-05-04 12:25:39.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/download-ftp/download-ftp.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,8 @@
+ 
+ #include <ctype.h>
+ 
++#include <cstdlib>
++
+ #include "download-ftp.hpp"
+ #include "CTRLDialogue.hpp"
+ #include "FILEDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/download-http/HTTPDialogue.cpp nepenthes-0.2.2.oden/modules/download-http/HTTPDialogue.cpp
+--- nepenthes-0.2.2/modules/download-http/HTTPDialogue.cpp	2007-02-06 16:16:52.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/download-http/HTTPDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,8 @@
+ 
+ #include "HTTPDialogue.hpp"
+ 
++#include <cstdlib> 
++#include <cstring> 
+ 
+ #include "Message.hpp"
+ #include "Nepenthes.hpp"
+diff -Naurp nepenthes-0.2.2/modules/download-rcp/RCPDialogue.cpp nepenthes-0.2.2.oden/modules/download-rcp/RCPDialogue.cpp
+--- nepenthes-0.2.2/modules/download-rcp/RCPDialogue.cpp	2007-10-12 15:07:24.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/download-rcp/RCPDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -26,6 +26,9 @@
+  *******************************************************************************/
+ 
+  /* $Id: RCPDialogue.cpp 1410 2007-10-12 13:07:23Z common $ */
++
++#include <cstdlib>
++#include <cstring>
+  
+ #include <sys/types.h>
+ #include <netinet/in.h>
+diff -Naurp nepenthes-0.2.2/modules/download-tftp/TFTPDialogue.cpp nepenthes-0.2.2.oden/modules/download-tftp/TFTPDialogue.cpp
+--- nepenthes-0.2.2/modules/download-tftp/TFTPDialogue.cpp	2006-05-04 12:25:39.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/download-tftp/TFTPDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,9 @@
+ 
+  /* $Id: TFTPDialogue.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
++#include <cstdlib>
++#include <cstring>
++
+ #include <sys/types.h>
+ #include <arpa/tftp.h>
+ #include <netinet/in.h>
+diff -Naurp nepenthes-0.2.2/modules/log-prelude/log-prelude.hpp nepenthes-0.2.2.oden/modules/log-prelude/log-prelude.hpp
+--- nepenthes-0.2.2/modules/log-prelude/log-prelude.hpp	2007-05-12 13:42:10.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/log-prelude/log-prelude.hpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: log-prelude.hpp 1266 2007-05-12 11:42:09Z common $ */
+ 
+ #include "config.h"
++#include <cstdlib>
+ 
+ #ifdef HAVE_LIBPRELUDE
+ #include <libprelude/prelude.h>
+diff -Naurp nepenthes-0.2.2/modules/log-surfnet/log-surfnet.cpp nepenthes-0.2.2.oden/modules/log-surfnet/log-surfnet.cpp
+--- nepenthes-0.2.2/modules/log-surfnet/log-surfnet.cpp	2007-02-21 15:16:50.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/log-surfnet/log-surfnet.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+ /* $Id: log-surfnet.cpp 932 2007-02-21 14:16:50Z common $ */
+ 
+ #include <sstream>
++#include <cstdlib>
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+diff -Naurp nepenthes-0.2.2/modules/module-honeytrap/PCAPSocket.cpp nepenthes-0.2.2.oden/modules/module-honeytrap/PCAPSocket.cpp
+--- nepenthes-0.2.2/modules/module-honeytrap/PCAPSocket.cpp	2006-11-11 21:54:38.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/module-honeytrap/PCAPSocket.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,9 @@
+ 
+ /* $Id: PCAPSocket.cpp 697 2006-11-11 09:17:19Z common $ */
+ 
++#include <cstdlib>
++#include <cstring>
++
+ #include <unistd.h>
+ #include <time.h>
+ #include <sys/types.h>
+diff -Naurp nepenthes-0.2.2/modules/module-peiros/PeirosParser.cpp nepenthes-0.2.2.oden/modules/module-peiros/PeirosParser.cpp
+--- nepenthes-0.2.2/modules/module-peiros/PeirosParser.cpp	2006-10-29 21:01:49.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/module-peiros/PeirosParser.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -18,6 +18,9 @@
+  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+  */
+ 
++#include <cstdlib>
++
++#include <cstdlib>
+ #include <ctype.h>
+ #include <stdio.h>
+ #include "PeirosParser.hpp"
+diff -Naurp nepenthes-0.2.2/modules/module-portwatch/module-portwatch.cpp nepenthes-0.2.2.oden/modules/module-portwatch/module-portwatch.cpp
+--- nepenthes-0.2.2/modules/module-portwatch/module-portwatch.cpp	2006-05-04 12:25:39.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/module-portwatch/module-portwatch.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: module-portwatch.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "module-portwatch.hpp"
+ #include "WatchDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_cmd.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_cmd.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_cmd.cpp	2007-02-06 16:16:52.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_cmd.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,7 +28,7 @@
+ 
+ /* $Id: sch_generic_cmd.cpp 836 2007-02-06 15:16:50Z common $ */
+ 
+-
++#include <cstring>
+ 
+ #include "sch_generic_cmd.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_createprocess.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_createprocess.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_createprocess.cpp	2006-05-04 12:25:40.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_createprocess.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -38,7 +38,7 @@
+ 
+ /* $Id: sch_generic_createprocess.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+-
++#include <cstring>
+ 
+ #include "sch_generic_createprocess.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_konstanz_xor.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_konstanz_xor.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_konstanz_xor.cpp	2006-02-20 17:46:10.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_konstanz_xor.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+ /* $Id: sch_generic_konstanz_xor.cpp 2215 2005-12-23 16:54:36Z common $ */ 
+ 
++#include <cstring>
++
+ #include "sch_generic_konstanz_xor.hpp"
+ #include "Nepenthes.hpp"
+ #include "Message.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_leimbach_url_xor.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_leimbach_url_xor.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_leimbach_url_xor.cpp	2007-02-06 16:16:52.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_leimbach_url_xor.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+  /* $Id: sch_generic_leimbach_url_xor.cpp 836 2007-02-06 15:16:50Z common $ */
+ 
++#include <cstring>
++
+ #include "sch_generic_xor.hpp"
+ #include "sch_generic_leimbach_url_xor.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_link_bind_trans.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_link_bind_trans.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_link_bind_trans.cpp	2006-02-20 17:46:10.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_link_bind_trans.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+  /* $Id: sch_generic_link_bind_trans.cpp 2271 2006-01-14 20:31:52Z common $ */
+ 
++#include <cstring>
++
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_link_trans.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_link_trans.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_link_trans.cpp	2006-02-20 17:46:10.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_link_trans.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -26,7 +26,8 @@
+  *******************************************************************************/
+ 
+  /* $Id: sch_generic_link_trans.cpp 2271 2006-01-14 20:31:52Z common $ */
+-
++
++#include <cstring>
+ 
+ #include <sys/types.h>
+ #include <sys/socket.h>
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_linkxor.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_linkxor.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_linkxor.cpp	2006-02-20 17:46:10.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_linkxor.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+ /* $Id: sch_generic_linkxor.cpp 2215 2005-12-23 16:54:36Z common $ */ 
+ 
++#include <cstring>
++
+ #include "sch_generic_linkxor.hpp"
+ #include "Nepenthes.hpp"
+ #include "Message.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_stuttgart.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_stuttgart.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_stuttgart.cpp	2006-02-20 17:46:10.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_stuttgart.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+  /* $Id: sch_generic_link_trans.cpp 1664 2005-07-15 03:33:39Z common $ */
+  
++#include <cstring>
++
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_unicode.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_unicode.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_unicode.cpp	2006-02-20 17:46:11.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_unicode.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+ /* $Id: sch_generic_unicode.cpp 2245 2006-01-06 16:46:44Z common $ */
+ 
++#include <cstdlib>
++#include <cstring>
+ 
+ #include "sch_generic_unicode.hpp"
+ #include "LogManager.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_winexec.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_winexec.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_winexec.cpp	2006-05-04 12:25:40.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_winexec.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,7 +27,7 @@
+ 
+ /* $Id: sch_generic_winexec.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+-
++#include <cstring>
+ 
+ #include "sch_generic_winexec.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/shellcode-generic/sch_generic_wuerzburg.cpp nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_wuerzburg.cpp
+--- nepenthes-0.2.2/modules/shellcode-generic/sch_generic_wuerzburg.cpp	2006-02-20 17:46:11.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-generic/sch_generic_wuerzburg.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -26,7 +26,9 @@
+  *******************************************************************************/
+ 
+  /* $Id: sch_generic_wuerzburg.cpp 2271 2006-01-14 20:31:52Z common $ */
+-
++
++#include <cstring>
++
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <netinet/in.h>
+diff -Naurp nepenthes-0.2.2/modules/shellcode-signatures/sch_engine_unicode.cpp nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_engine_unicode.cpp
+--- nepenthes-0.2.2/modules/shellcode-signatures/sch_engine_unicode.cpp	2006-03-27 21:55:20.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_engine_unicode.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,8 @@
+ 
+ #include <stdint.h>
+ 
++#include <cstring>
++
+ #include "sch_engine_unicode.hpp"
+ 
+ #include "Nepenthes.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_alphanumericxor.cpp nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_alphanumericxor.cpp
+--- nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_alphanumericxor.cpp	2006-04-19 01:18:22.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_alphanumericxor.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,7 @@
+ 
+ /* $Id: sch_namespace_alphanumericxor.cpp 520 2006-04-18 23:18:17Z common $ */
+ 
++#include <cstring>
+ 
+ #include "sch_namespace_alphanumericxor.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_base64.cpp nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_base64.cpp
+--- nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_base64.cpp	2006-11-02 20:35:43.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_base64.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+ /* $Id: sch_namespace_base64.cpp 693 2006-11-02 19:35:43Z common $ */
+ 
++#include <cstring>
++
+ #include "sch_namespace_base64.hpp"
+ 
+ #include "Nepenthes.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_execute.cpp nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_execute.cpp
+--- nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_execute.cpp	2006-05-04 12:25:40.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_execute.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,8 @@
+ 
+ #include "sch_namespace_execute.hpp"
+ 
++#include <cstring>
++
+ #include "Nepenthes.hpp"
+ #include "Message.hpp"
+ #include "LogManager.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_konstanzxor.cpp nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_konstanzxor.cpp
+--- nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_konstanzxor.cpp	2007-01-06 16:52:39.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_konstanzxor.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+ /* $Id: sch_namespace_konstanzxor.cpp 499 2006-04-08 18:40:14Z common $ */
+ 
++#include <cstring>
++
+ #include "sch_namespace_konstanzxor.hpp"
+ 
+ #include "Nepenthes.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_linkxor.cpp nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_linkxor.cpp
+--- nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_linkxor.cpp	2006-09-27 14:01:16.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_linkxor.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,7 @@
+ 
+ /* $Id: sch_namespace_linkxor.cpp 654 2006-09-27 12:01:16Z common $ */
+ 
++#include <cstring>
+ 
+ #include "sch_namespace_linkxor.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_xor.cpp nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_xor.cpp
+--- nepenthes-0.2.2/modules/shellcode-signatures/sch_namespace_xor.cpp	2006-04-08 20:40:18.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellcode-signatures/sch_namespace_xor.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,7 @@
+ 
+ 
+ #include "sch_namespace_xor.hpp"
++#include <cstring>
+ 
+ #include "Nepenthes.hpp"
+ #include "Message.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellemu-winnt/VFS.cpp nepenthes-0.2.2.oden/modules/shellemu-winnt/VFS.cpp
+--- nepenthes-0.2.2/modules/shellemu-winnt/VFS.cpp	2007-10-12 14:47:31.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellemu-winnt/VFS.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -22,6 +22,7 @@
+ 
+ 
+ #include <ctype.h>
++#include <cstring>
+ 
+ #include "VFS.hpp"
+ #include "VFSNode.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellemu-winnt/VFSCommandCMD.cpp nepenthes-0.2.2.oden/modules/shellemu-winnt/VFSCommandCMD.cpp
+--- nepenthes-0.2.2/modules/shellemu-winnt/VFSCommandCMD.cpp	2006-02-20 17:46:12.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellemu-winnt/VFSCommandCMD.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -38,6 +38,7 @@
+ #include "Dialogue.hpp"
+ #include "Socket.hpp"
+ 
++#include <cstring>
+ 
+ #ifdef STDTAGS 
+ #undef STDTAGS 
+diff -Naurp nepenthes-0.2.2/modules/shellemu-winnt/VFSCommandFTP.cpp nepenthes-0.2.2.oden/modules/shellemu-winnt/VFSCommandFTP.cpp
+--- nepenthes-0.2.2/modules/shellemu-winnt/VFSCommandFTP.cpp	2007-10-12 15:07:24.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellemu-winnt/VFSCommandFTP.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+ /* $Id: VFSCommandFTP.cpp 1410 2007-10-12 13:07:23Z common $ */
+ 
+ #include <ctype.h>
++#include <cstring>
+  
+ #include "VFSCommandFTP.hpp"
+ #include "VFSNode.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellemu-winnt/VFSCommandRCP.cpp nepenthes-0.2.2.oden/modules/shellemu-winnt/VFSCommandRCP.cpp
+--- nepenthes-0.2.2/modules/shellemu-winnt/VFSCommandRCP.cpp	2006-05-04 12:25:40.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellemu-winnt/VFSCommandRCP.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+ /* $Id: VFSCommandRCP.cpp 550 2006-05-04 10:25:35Z common $ */
+  
++#include <cstring>
++
+ #include "VFSCommandRCP.hpp"
+ #include "VFSNode.hpp"
+ #include "VFSDir.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellemu-winnt/VFSDir.cpp nepenthes-0.2.2.oden/modules/shellemu-winnt/VFSDir.cpp
+--- nepenthes-0.2.2/modules/shellemu-winnt/VFSDir.cpp	2007-10-12 14:46:37.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/shellemu-winnt/VFSDir.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,7 @@
+ 
+ /* $Id: VFSDir.cpp 1947 2005-09-08 17:30:06Z common $ */
+ 
++#include <cstring>
+ 
+ #include "VFSDir.hpp"
+ #include "VFSFile.hpp"
+diff -Naurp nepenthes-0.2.2/modules/shellemu-winnt/WinNTShellDialogue.cpp nepenthes-0.2.2.oden/modules/shellemu-winnt/WinNTShellDialogue.cpp
+--- nepenthes-0.2.2/modules/shellemu-winnt/WinNTShellDialogue.cpp	2006-02-20 17:46:13.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/shellemu-winnt/WinNTShellDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+ /* $Id: WinNTShellDialogue.cpp 2221 2005-12-23 17:01:33Z common $ */ 
+ 
++#include <cstring>
++
+ //#include <arpa/inet.h>
+ #include <errno.h>
+ #include <string>
+diff -Naurp nepenthes-0.2.2/modules/submit-gotek/submit-gotek.cpp nepenthes-0.2.2.oden/modules/submit-gotek/submit-gotek.cpp
+--- nepenthes-0.2.2/modules/submit-gotek/submit-gotek.cpp	2006-05-04 12:25:40.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/submit-gotek/submit-gotek.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -26,6 +26,9 @@
+  *******************************************************************************/
+ 
+  /* $Id: submit-gotek.cpp 550 2006-05-04 10:25:35Z common $ */
++
++#include <cstdlib>
++
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <unistd.h>
+diff -Naurp nepenthes-0.2.2/modules/submit-http/HTTPSession.cpp nepenthes-0.2.2.oden/modules/submit-http/HTTPSession.cpp
+--- nepenthes-0.2.2/modules/submit-http/HTTPSession.cpp	2007-02-06 16:39:02.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/submit-http/HTTPSession.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -31,6 +31,7 @@
+ #include <curl/types.h> /* new for v7 */
+ #include <curl/easy.h> /* new for v7 */
+ #include <sstream>
++#include <cstring>
+ #include <netinet/in.h>
+ 
+ #include "HTTPSession.hpp"
+diff -Naurp nepenthes-0.2.2/modules/submit-mwserv/TransferSession.cpp nepenthes-0.2.2.oden/modules/submit-mwserv/TransferSession.cpp
+--- nepenthes-0.2.2/modules/submit-mwserv/TransferSession.cpp	2007-06-11 14:46:24.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/submit-mwserv/TransferSession.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -26,6 +26,8 @@
+  *
+  *******************************************************************************/
+ 
++#include <cstdlib>
++
+ #include "submit-mwserv.hpp"
+ 
+ #include "LogManager.hpp"
+diff -Naurp nepenthes-0.2.2/modules/submit-norman/submit-norman.hpp nepenthes-0.2.2.oden/modules/submit-norman/submit-norman.hpp
+--- nepenthes-0.2.2/modules/submit-norman/submit-norman.hpp	2006-10-23 03:31:53.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/submit-norman/submit-norman.hpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+  /* $Id: submit-norman.hpp 674 2006-10-23 01:31:53Z common $ */
+ 
++#include <cstdlib>
++#include <cstring>
+ 
+ #include <curl/curl.h>
+ #include <curl/types.h> /* new for v7 */
+diff -Naurp nepenthes-0.2.2/modules/submit-postgres/PGDownloadContext.cpp nepenthes-0.2.2.oden/modules/submit-postgres/PGDownloadContext.cpp
+--- nepenthes-0.2.2/modules/submit-postgres/PGDownloadContext.cpp	2006-10-29 21:08:42.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/submit-postgres/PGDownloadContext.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,7 @@
+ 
+ /* $Id: PGDownloadContext.cpp 688 2006-10-29 20:08:41Z common $ */
+ 
++#include <cstdlib>
+ 
+ #include <sys/types.h>
+ #include <sys/socket.h>
+diff -Naurp nepenthes-0.2.2/modules/submit-postgres/PGDownloadContext.hpp nepenthes-0.2.2.oden/modules/submit-postgres/PGDownloadContext.hpp
+--- nepenthes-0.2.2/modules/submit-postgres/PGDownloadContext.hpp	2006-10-16 20:49:47.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/submit-postgres/PGDownloadContext.hpp	2008-07-07 12:35:45.000000000 +0200
+@@ -31,6 +31,7 @@
+ #define HAVE_PGDOWNLOADCONTEXT_HPP
+ 
+ #include <string>
++#include <cstring>
+ #include <stdint.h>
+ 
+ #include "Download.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-asn1/IISDialogue.cpp nepenthes-0.2.2.oden/modules/vuln-asn1/IISDialogue.cpp
+--- nepenthes-0.2.2/modules/vuln-asn1/IISDialogue.cpp	2007-02-06 16:16:52.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/vuln-asn1/IISDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: IISDialogue.cpp 836 2007-02-06 15:16:50Z common $ */
+ 
+ #include <ctype.h>
++#include <cstring>
+ 
+ #include "IISDialogue.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/vuln-asn1/SMBDialogue.cpp nepenthes-0.2.2.oden/modules/vuln-asn1/SMBDialogue.cpp
+--- nepenthes-0.2.2/modules/vuln-asn1/SMBDialogue.cpp	2007-02-06 16:16:52.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/vuln-asn1/SMBDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: SMBDialogue.cpp 836 2007-02-06 15:16:50Z common $ */
+ 
+ #include <ctype.h>
++#include <cstring>
+ 
+ #include "SMBDialogue.hpp"
+ #include "asn1-shellcodes.h"
+diff -Naurp nepenthes-0.2.2/modules/vuln-bagle/vuln-bagle.cpp nepenthes-0.2.2.oden/modules/vuln-bagle/vuln-bagle.cpp
+--- nepenthes-0.2.2/modules/vuln-bagle/vuln-bagle.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-bagle/vuln-bagle.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-bagle.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-bagle.hpp"
+ #include "BagleDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-dameware/vuln-dameware.cpp nepenthes-0.2.2.oden/modules/vuln-dameware/vuln-dameware.cpp
+--- nepenthes-0.2.2/modules/vuln-dameware/vuln-dameware.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-dameware/vuln-dameware.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-dameware.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-dameware.hpp"
+ #include "DWDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-dcom/vuln-dcom.cpp nepenthes-0.2.2.oden/modules/vuln-dcom/vuln-dcom.cpp
+--- nepenthes-0.2.2/modules/vuln-dcom/vuln-dcom.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-dcom/vuln-dcom.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,7 @@
+ 
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-dcom.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/vuln-iis/vuln-iis.cpp nepenthes-0.2.2.oden/modules/vuln-iis/vuln-iis.cpp
+--- nepenthes-0.2.2/modules/vuln-iis/vuln-iis.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-iis/vuln-iis.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-iis.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-iis.hpp"
+ #include "IISDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-kuang2/vuln-kuang2.cpp nepenthes-0.2.2.oden/modules/vuln-kuang2/vuln-kuang2.cpp
+--- nepenthes-0.2.2/modules/vuln-kuang2/vuln-kuang2.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-kuang2/vuln-kuang2.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-kuang2.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-kuang2.hpp"
+ #include "Kuang2Dialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-lsass/vuln-lsass.cpp nepenthes-0.2.2.oden/modules/vuln-lsass/vuln-lsass.cpp
+--- nepenthes-0.2.2/modules/vuln-lsass/vuln-lsass.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-lsass/vuln-lsass.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-lsass.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-lsass.hpp"
+ #include "LSASSDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-msdtc/vuln-msdtc.cpp nepenthes-0.2.2.oden/modules/vuln-msdtc/vuln-msdtc.cpp
+--- nepenthes-0.2.2/modules/vuln-msdtc/vuln-msdtc.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-msdtc/vuln-msdtc.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-msdtc.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-msdtc.hpp"
+ #include "MSDTCDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-msmq/vuln-msmq.cpp nepenthes-0.2.2.oden/modules/vuln-msmq/vuln-msmq.cpp
+--- nepenthes-0.2.2/modules/vuln-msmq/vuln-msmq.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-msmq/vuln-msmq.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-msmq.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-msmq.hpp"
+ #include "MSMQDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-mssql/MSSQLDialogue.cpp nepenthes-0.2.2.oden/modules/vuln-mssql/MSSQLDialogue.cpp
+--- nepenthes-0.2.2/modules/vuln-mssql/MSSQLDialogue.cpp	2007-02-06 16:16:53.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/vuln-mssql/MSSQLDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: MSSQLDialogue.cpp 836 2007-02-06 15:16:50Z common $ */
+ 
+ #include <ctype.h>
++#include <cstring>
+ 
+ #include "MSSQLDialogue.hpp"
+ #include "vuln-mssql.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-mydoom/vuln-mydoom.cpp nepenthes-0.2.2.oden/modules/vuln-mydoom/vuln-mydoom.cpp
+--- nepenthes-0.2.2/modules/vuln-mydoom/vuln-mydoom.cpp	2006-05-04 12:25:41.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-mydoom/vuln-mydoom.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -30,6 +30,7 @@
+ 
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-mydoom.hpp"
+ #include "MydoomDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-netbiosname/SMBNameDialogue.cpp nepenthes-0.2.2.oden/modules/vuln-netbiosname/SMBNameDialogue.cpp
+--- nepenthes-0.2.2/modules/vuln-netbiosname/SMBNameDialogue.cpp	2007-02-06 16:16:53.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/vuln-netbiosname/SMBNameDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: SMBNameDialogue.cpp 836 2007-02-06 15:16:50Z common $ */
+ 
+ #include <ctype.h>
++#include <cstring>
+ 
+ #include "SMBNameDialogue.hpp"
+ #include "vuln-netbiosname.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-netdde/NETDDEDialogue.cpp nepenthes-0.2.2.oden/modules/vuln-netdde/NETDDEDialogue.cpp
+--- nepenthes-0.2.2/modules/vuln-netdde/NETDDEDialogue.cpp	2007-02-06 16:16:53.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/vuln-netdde/NETDDEDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: NETDDEDialogue.cpp 836 2007-02-06 15:16:50Z common $ */
+ 
+ #include <ctype.h>
++#include <cstring>
+ 
+ #include "NETDDEDialogue.hpp"
+ #include "vuln-netdde.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-optix/vuln-optix.cpp nepenthes-0.2.2.oden/modules/vuln-optix/vuln-optix.cpp
+--- nepenthes-0.2.2/modules/vuln-optix/vuln-optix.cpp	2006-05-04 12:25:42.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-optix/vuln-optix.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -30,6 +30,7 @@
+ 
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-optix.hpp"
+ #include "OPTIXShellDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-pnp/vuln-pnp.cpp nepenthes-0.2.2.oden/modules/vuln-pnp/vuln-pnp.cpp
+--- nepenthes-0.2.2/modules/vuln-pnp/vuln-pnp.cpp	2006-05-04 12:25:42.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-pnp/vuln-pnp.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-pnp.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-pnp.hpp"
+ #include "PNPDialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-sasserftpd/SasserFTPDDialogue.cpp nepenthes-0.2.2.oden/modules/vuln-sasserftpd/SasserFTPDDialogue.cpp
+--- nepenthes-0.2.2/modules/vuln-sasserftpd/SasserFTPDDialogue.cpp	2007-02-06 16:16:54.000000000 +0100
++++ nepenthes-0.2.2.oden/modules/vuln-sasserftpd/SasserFTPDDialogue.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: SasserFTPDDialogue.cpp 836 2007-02-06 15:16:50Z common $ */
+ 
+ #include <ctype.h>
++#include <cstring>
+ 
+ #include "SasserFTPDDialogue.hpp"
+ #include "vuln-sasserftpd.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-sub7/vuln-sub7.cpp nepenthes-0.2.2.oden/modules/vuln-sub7/vuln-sub7.cpp
+--- nepenthes-0.2.2/modules/vuln-sub7/vuln-sub7.cpp	2006-05-04 12:25:42.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-sub7/vuln-sub7.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-sub7.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-sub7.hpp"
+ #include "SUB7Dialogue.hpp"
+diff -Naurp nepenthes-0.2.2/modules/vuln-wins/vuln-wins.cpp nepenthes-0.2.2.oden/modules/vuln-wins/vuln-wins.cpp
+--- nepenthes-0.2.2/modules/vuln-wins/vuln-wins.cpp	2006-05-04 12:25:42.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/vuln-wins/vuln-wins.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: vuln-wins.cpp 550 2006-05-04 10:25:35Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
+ 
+ #include "vuln-wins.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/x-5/x-5.cpp nepenthes-0.2.2.oden/modules/x-5/x-5.cpp
+--- nepenthes-0.2.2/modules/x-5/x-5.cpp	2007-10-12 15:07:25.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/x-5/x-5.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -27,6 +27,8 @@
+ 
+  /* $Id: x-5.cpp 1410 2007-10-12 13:07:23Z common $ */
+ 
++#include <cstdlib>
++
+ #include "x-5.hpp"
+ #include "LogManager.hpp"
+ #include "EventManager.hpp"
+diff -Naurp nepenthes-0.2.2/modules/x-6/x-6.cpp nepenthes-0.2.2.oden/modules/x-6/x-6.cpp
+--- nepenthes-0.2.2/modules/x-6/x-6.cpp	2006-07-29 23:27:25.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/x-6/x-6.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,8 @@
+  /* $Id: x-6.cpp 343 2006-02-20 17:11:57Z common $ */
+ 
+ #include <ctype.h>
++#include <cstdlib>
++#include <cstring>
+ 
+ #include "x-6.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/modules/x-9/x-9.cpp nepenthes-0.2.2.oden/modules/x-9/x-9.cpp
+--- nepenthes-0.2.2/modules/x-9/x-9.cpp	2006-10-08 17:04:16.000000000 +0200
++++ nepenthes-0.2.2.oden/modules/x-9/x-9.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -28,6 +28,7 @@
+  /* $Id: x-9.cpp 658 2006-10-08 15:04:17Z common $ */
+ 
+ #include <ctype.h>
++#include <cstring>
+ 
+ #include "x-9.hpp"
+ 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/include/Config.hpp nepenthes-0.2.2.oden/nepenthes-core/include/Config.hpp
+--- nepenthes-0.2.2/nepenthes-core/include/Config.hpp	2006-10-30 20:05:22.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/include/Config.hpp	2008-07-07 12:34:38.000000000 +0200
+@@ -52,6 +52,8 @@
+ 
+ #endif
+ 
++#include <cstring>
++
+ using namespace std;
+ 
+ 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/include/DownloadUrl.hpp nepenthes-0.2.2.oden/nepenthes-core/include/DownloadUrl.hpp
+--- nepenthes-0.2.2/nepenthes-core/include/DownloadUrl.hpp	2006-02-20 17:46:31.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/include/DownloadUrl.hpp	2008-07-07 12:34:38.000000000 +0200
+@@ -32,6 +32,7 @@
+ 
+ 
+ #include <string>
++#include <typeinfo>
+ 
+ using namespace std;
+ 
+@@ -39,7 +40,6 @@ using namespace std;
+ namespace nepenthes
+ {
+ 
+-
+ 	/**
+ 	 * protocoll/port mapping for various protocols
+ 	 */
+@@ -47,7 +47,7 @@ namespace nepenthes
+ 	{
+ 		const char      *protocolName;
+ 		uint16_t         port;
+-	};
++	} foo;
+ 
+ 
+ 	/**
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/Config.cpp nepenthes-0.2.2.oden/nepenthes-core/src/Config.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/Config.cpp	2006-02-20 17:46:31.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/Config.cpp	2008-07-07 12:34:38.000000000 +0200
+@@ -352,7 +352,7 @@ char *Config::parseString(CharField *dat
+ 
+ 					szHexConv[0] = data->getChar();
+ 					szHexConv[1] = data->getChar();
+-					szHexConv[3] = 0;
++					szHexConv[2] = 0; /* 3 looked like a typo */
+ //					printf("uint32_t i is here %i\n",i);
+ //					printf("Converting %i %c%c -> %i\n",i, szHexConv[0],szHexConv[1], (unsigned char)strtol(szHexConv,NULL,16) );
+ //					strtol(szHexConv,NULL,16);
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/DNSManager.cpp nepenthes-0.2.2.oden/nepenthes-core/src/DNSManager.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/DNSManager.cpp	2006-05-04 12:25:42.000000000 +0200
++++ nepenthes-0.2.2.oden/nepenthes-core/src/DNSManager.cpp	2008-07-07 12:34:38.000000000 +0200
+@@ -43,6 +43,8 @@
+ #include "Nepenthes.hpp"
+ #include "LogManager.hpp"
+ 
++#include <cstring>
++
+ using namespace nepenthes;
+ 
+ //extern int32_t errno;
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/DNSResult.cpp nepenthes-0.2.2.oden/nepenthes-core/src/DNSResult.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/DNSResult.cpp	2007-02-06 16:16:54.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/DNSResult.cpp	2008-07-07 12:34:38.000000000 +0200
+@@ -33,6 +33,8 @@
+ #include "DNSQuery.hpp"
+ #include "Utilities.hpp"
+ 
++#include <cstring>
++
+ using namespace nepenthes;
+ 
+ /**
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/Download.cpp nepenthes-0.2.2.oden/nepenthes-core/src/Download.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/Download.cpp	2006-02-20 17:46:31.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/Download.cpp	2008-07-07 12:34:38.000000000 +0200
+@@ -33,6 +33,8 @@
+ #include "Nepenthes.hpp"
+ #include "LogManager.hpp"
+ 
++#include <cstring>
++
+ using namespace nepenthes;
+ 
+ /**
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/DownloadBuffer.cpp nepenthes-0.2.2.oden/nepenthes-core/src/DownloadBuffer.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/DownloadBuffer.cpp	2006-02-20 17:40:29.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/DownloadBuffer.cpp	2008-07-07 12:34:38.000000000 +0200
+@@ -33,6 +33,8 @@
+ #include "Nepenthes.hpp"
+ #include "LogManager.hpp"
+ 
++#include <cstring>
++
+ using namespace nepenthes;
+ 
+ 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/DownloadManager.cpp nepenthes-0.2.2.oden/nepenthes-core/src/DownloadManager.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/DownloadManager.cpp	2008-02-14 12:18:18.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/DownloadManager.cpp	2008-07-07 12:34:38.000000000 +0200
+@@ -42,6 +42,8 @@
+ #include "SubmitEvent.hpp"
+ #include "EventManager.hpp"
+ 
++#include <cstdlib>
++
+ using namespace std;
+ using namespace nepenthes;
+ 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/DownloadUrl.cpp nepenthes-0.2.2.oden/nepenthes-core/src/DownloadUrl.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/DownloadUrl.cpp	2006-02-20 17:40:28.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/DownloadUrl.cpp	2008-07-07 12:34:38.000000000 +0200
+@@ -39,6 +39,8 @@
+ #include "Nepenthes.hpp"
+ #include "LogManager.hpp"
+ 
++#include <cstdlib>
++
+ using namespace nepenthes;
+ 
+  
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/EventManager.cpp nepenthes-0.2.2.oden/nepenthes-core/src/EventManager.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/EventManager.cpp	2007-10-12 15:07:25.000000000 +0200
++++ nepenthes-0.2.2.oden/nepenthes-core/src/EventManager.cpp	2008-07-07 12:34:38.000000000 +0200
+@@ -34,6 +34,8 @@
+ 
+ #include "LogManager.hpp"
+ 
++#include <cstdlib>
++
+ using namespace nepenthes;
+ 
+ #ifdef STDTAGS 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/FileLogger.cpp nepenthes-0.2.2.oden/nepenthes-core/src/FileLogger.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/FileLogger.cpp	2006-11-11 21:54:37.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/FileLogger.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -42,6 +42,9 @@
+ #include "Nepenthes.hpp"
+ #include "LogManager.hpp"
+ 
++#include <cstdlib>
++#include <cstring>
++
+ using namespace nepenthes;
+ using namespace std;
+ 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/LogManager.cpp nepenthes-0.2.2.oden/nepenthes-core/src/LogManager.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/LogManager.cpp	2007-02-06 16:16:54.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/LogManager.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -30,6 +30,8 @@
+ #include <stdarg.h>
+ #include <assert.h>
+ #include <stdio.h>
++#include <cstdlib>
++#include <cstring>
+ #include "LogManager.hpp"
+ #include "LogHandlerEntry.hpp"
+ #include "LogHandler.hpp"
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/ModuleManager.cpp nepenthes-0.2.2.oden/nepenthes-core/src/ModuleManager.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/ModuleManager.cpp	2006-08-10 17:31:58.000000000 +0200
++++ nepenthes-0.2.2.oden/nepenthes-core/src/ModuleManager.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -35,6 +35,8 @@
+ #include "Nepenthes.hpp"
+ #include "LogManager.hpp"
+ 
++#include <cstdlib>
++
+ using namespace nepenthes;
+ using namespace std;
+ 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/Nepenthes.cpp nepenthes-0.2.2.oden/nepenthes-core/src/Nepenthes.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/Nepenthes.cpp	2007-10-12 15:07:25.000000000 +0200
++++ nepenthes-0.2.2.oden/nepenthes-core/src/Nepenthes.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -71,6 +71,8 @@
+ 
+ #include "Message.hpp"
+ 
++#include <cstdlib>
++
+ 
+ #ifdef STDTAGS
+ 	#undef STDTAGS
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/RingFileLogger.cpp nepenthes-0.2.2.oden/nepenthes-core/src/RingFileLogger.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/RingFileLogger.cpp	2006-11-11 21:54:37.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/RingFileLogger.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -46,6 +46,9 @@
+ #include "Nepenthes.hpp"
+ #include "LogManager.hpp"
+ 
++#include <cstring>
++#include <cstdlib>
++
+ using namespace nepenthes;
+ using namespace std;
+ 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/Socket.cpp nepenthes-0.2.2.oden/nepenthes-core/src/Socket.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/Socket.cpp	2006-11-11 21:54:37.000000000 +0100
++++ nepenthes-0.2.2.oden/nepenthes-core/src/Socket.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,7 @@
+ 
+ #include <string>
+ #include <sstream>
++#include <cstring>
+ 
+ #include <time.h>
+ 
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/SocketManager.cpp nepenthes-0.2.2.oden/nepenthes-core/src/SocketManager.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/SocketManager.cpp	2007-05-12 12:29:49.000000000 +0200
++++ nepenthes-0.2.2.oden/nepenthes-core/src/SocketManager.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -45,6 +45,7 @@
+ 
+ 
+ #include <string>
++#include <cstdlib>
+ 
+ #include "SocketManager.hpp"
+ #include "Socket.hpp"
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/TCPSocket.cpp nepenthes-0.2.2.oden/nepenthes-core/src/TCPSocket.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/TCPSocket.cpp	2007-10-12 15:07:25.000000000 +0200
++++ nepenthes-0.2.2.oden/nepenthes-core/src/TCPSocket.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -29,6 +29,8 @@
+ 
+ #include "config.h"
+ 
++#include <cstring>
++
+ #include <sys/types.h>
+ 
+ #ifdef WIN32
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/UDPSocket.cpp nepenthes-0.2.2.oden/nepenthes-core/src/UDPSocket.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/UDPSocket.cpp	2007-10-12 15:07:25.000000000 +0200
++++ nepenthes-0.2.2.oden/nepenthes-core/src/UDPSocket.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -30,6 +30,8 @@
+ #include <errno.h>
+ #include <sys/types.h>
+ 
++#include <cstring>
++
+ #ifdef WIN32
+ #include <winsock2.h>
+ #else
+diff -Naurp nepenthes-0.2.2/nepenthes-core/src/Utilities.cpp nepenthes-0.2.2.oden/nepenthes-core/src/Utilities.cpp
+--- nepenthes-0.2.2/nepenthes-core/src/Utilities.cpp	2007-08-23 15:16:07.000000000 +0200
++++ nepenthes-0.2.2.oden/nepenthes-core/src/Utilities.cpp	2008-07-07 12:35:45.000000000 +0200
+@@ -38,6 +38,8 @@
+ #include <inttypes.h>
+ #include <ctype.h>
+ 
++#include <cstdlib>
++
+ #include "Utilities.hpp"
+ #include "LogManager.hpp"
+ #include "Config.hpp"
