@@ -7,7 +7,7 @@ Epoch:                  0
 Summary:                Low-interaction honeypot
 Group:                  Development/Other
 License:                GPL
-URL:                    http://nepenthes.mwcollect.org/
+URL:                    https://nepenthes.mwcollect.org/
 Source0:                http://downloads.sourceforge.net/sourceforge/nepenthes/nepenthes-%{version}.tar.bz2
 Source1:                nepenthes.init
 Source2:                nepenthes.logrotate
