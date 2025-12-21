@@ -22,6 +22,11 @@ Requires(post):         rpm-helper
 Requires(postun):       rpm-helper
 Requires(pre):          rpm-helper
 Requires(preun):        rpm-helper
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:          bison
 BuildRequires:          chrpath
 BuildRequires:          flex
